@@ -1,0 +1,14 @@
+[package]
+name = "lab"
+edition = "2021"
+version.workspace = true
+
+[dependencies]
+ahash = "0.8.11"
+libafl = { path = "../../libafl/" }
+libafl_bolts = { path = "../../libafl_bolts/" }
+log = "0.4.21"
+meminterval = "0.4.1"
+nix = "0.27.0"
+num-traits = "0.2.18"
+serde = { version = "1.0.200", features = ["derive"] }
