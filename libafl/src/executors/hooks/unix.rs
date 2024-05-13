@@ -1,4 +1,4 @@
-/// The inprocess executor singal handling code for unix
+/// The inprocess executor signal handling code for unix
 #[cfg(unix)]
 pub mod unix_signal_handler {
     use alloc::{boxed::Box, string::String, vec::Vec};

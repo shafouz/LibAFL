@@ -364,7 +364,6 @@ where
     }
 
     /// Get the `len` or calculate it, if not yet calculated.
-    #[allow(clippy::len_without_is_empty)]
     pub fn load_len<C: Corpus<Input = I>>(&mut self, corpus: &C) -> Result<usize, Error> {
         match &self.input {
             Some(i) => {

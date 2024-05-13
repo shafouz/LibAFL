@@ -8,6 +8,7 @@ trait CloneReal2 {
     fn calls(&self) {}
 }
 
+#[allow(dead_code)]
 struct Hello {
     ay: bool,
 }

@@ -75,3 +75,4 @@ program
 fuzzer
 fuzzer_libpng*
 forkserver_simple
+

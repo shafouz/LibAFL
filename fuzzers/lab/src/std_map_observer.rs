@@ -50,14 +50,14 @@ where
 {
     #[inline]
     fn pre_exec(&mut self, _state: &mut S, _input: &S::Input) -> Result<(), Error> {
-        let map = self.map.to_vec();
-        let mut string = String::new();
-        for el in map {
-            string.push_str(&el.to_string());
-            string.push_str(" ");
-        }
-        eprintln!("{:#?}", String::from_utf8_lossy(_input.bytes()));
-        eprintln!("{:#?}", string);
+        // let map = self.map.to_vec();
+        // let mut string = String::new();
+        // for el in map {
+        //     string.push_str(&el.to_string());
+        //     string.push_str(" ");
+        // }
+        // eprintln!("{:#?}", String::from_utf8_lossy(_input.bytes()));
+        // eprintln!("{:#?}", string);
         self.reset_map()
     }
 }
@@ -224,10 +224,6 @@ where
 
     /// Count the set bytes in the map
     fn count_bytes(&self) -> u64 {
-        eprintln!(
-            "DEBUGPRINT[1]: std_map_observer.rs:217: self.map={:#?}",
-            self.map
-        );
         let initial = self.initial();
         let cnt = self.usable_count();
         let map = self.as_slice();
@@ -273,10 +269,6 @@ where
     }
 
     fn how_many_set(&self, indexes: &[usize]) -> usize {
-        eprintln!(
-            "DEBUGPRINT[2]: std_map_observer.rs:266: self.map={:#?}",
-            self.map
-        );
         let initial = self.initial();
         let cnt = self.usable_count();
         let map = self.as_slice();

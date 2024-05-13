@@ -11,7 +11,6 @@ use forkserver_executor::CustomForkserverExecutor;
 use libafl::{
     corpus::{InMemoryCorpus, OnDiskCorpus},
     events::SimpleEventManager,
-    executors::ForkserverExecutor,
     feedbacks::CrashFeedback,
     inputs::BytesInput,
     monitors::SimpleMonitor,
@@ -32,7 +31,7 @@ use std::path::PathBuf;
 
 use std_map_observer::CustomStdMapObserver;
 
-static MAP_SIZE: usize = 512;
+static MAP_SIZE: usize = 1024;
 
 fn main() {
     let mut shmem_provider = StdShMemProvider::new().unwrap();
@@ -56,12 +55,12 @@ fn main() {
     .unwrap();
 
     let mut executor = CustomForkserverExecutor::builder()
-        .shmem_provider(&mut shmem_provider)
-        .arg_input_file_std()
-        .coverage_map_size(MAP_SIZE)
         .program("./lab")
+        .shmem_provider(&mut shmem_provider)
+        .coverage_map_size(MAP_SIZE)
         .debug_child(true)
         .is_deferred_frksrv(true)
+        .arg_input_file_std()
         .build(tuple_list!(observer))
         .unwrap();
 
